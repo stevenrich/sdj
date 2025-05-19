@@ -1,0 +1,55 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import Hero from '../../components/Hero.astro'
+import Feature from '../../components/Feature.astro'
+import Counter from '../../components/Counter.astro'
+import ContentMedia from '../../components/ContentMedia.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import amanda from '../../assets/img/amanda-morris.png';
+import hannah from '../../assets/img/hannah-wise.jpeg';
+import emyle from '../../assets/img/emyle-watkins.png';
+import eric from '../../assets/img/eric-garcia.jpg';
+import kate from '../../assets/img/kate-guarino.jpeg';
+import shruti from '../../assets/img/shruti-rajkumar.jpeg';
+import sara from '../../assets/img/sara-luterman.jpeg';
+import { BRAND } from 'astro:schema'
+---
+<DefaultLayout title="Join">
+
+    <div class="container"><h2 class="mb-16 text-6xl">Contact Us</h2> </div>
+
+
+
+
+
+
+
+<div class="container">
+    <form action="action_page.php">
+  
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="First name">
+  
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Last name">
+  
+      <label for="membership">Membership status</label>
+    </br>
+      <select id="membership" name="membership">
+        <option value="full">Full Member</option>
+        <option value="student">Student Member</option>
+        <option value="associate">Associate Member</option>
+        <option value="retired">Retired Member</option>
+        <option value="not">Not a Member</option>
+      </select>
+    </br>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject">
+      <label for="message">Message</label>
+      <textarea id="body" name="body" placeholder="Message" style="height:200px"></textarea>
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div> 
+
+</DefaultLayout>
