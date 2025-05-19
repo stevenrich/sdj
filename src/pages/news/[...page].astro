@@ -1,15 +1,15 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import PageHeader from '@components/PageHeader.astro'
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import PageHeader from '../../components/PageHeader.astro'
 import { Card, Pagination } from 'accessible-astro-components'
 import type { PaginateFunction, Page } from 'astro'
 
 // Import images directly for optimization
-import postImage1 from '@assets/images/posts/post-image-1.png'
-import postImage2 from '@assets/images/posts/post-image-2.png'
-import postImage3 from '@assets/images/posts/post-image-3.png'
-import postImage4 from '@assets/images/posts/post-image-4.png'
-import postImage5 from '@assets/images/posts/post-image-5.png'
+import postImage1 from '../../assets/images/posts/post-image-1.png'
+import postImage2 from '../../assets/images/posts/post-image-2.png'
+import postImage3 from '../../assets/images/posts/post-image-3.png'
+import postImage4 from '../../assets/images/posts/post-image-4.png'
+import postImage5 from '../../assets/images/posts/post-image-5.png'
 import postImage6 from '../../assets/images/posts/post-image-6.png'
 
 interface Post {
