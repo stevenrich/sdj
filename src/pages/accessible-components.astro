@@ -1,12 +1,17 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { Icon } from 'astro-icon/components'
+import PageHeader from '../components/PageHeader.astro'
 import {
   Accordion,
   AccordionItem,
+  Avatar,
+  AvatarGroup,
+  Badge,
   Breadcrumbs,
   BreadcrumbsItem,
   Card,
+  DarkMode,
   Media,
   Modal,
   Notification,
@@ -15,25 +20,23 @@ import {
   TabsList,
   TabsTab,
   TabsPanel,
+  Video,
 } from 'accessible-astro-components'
 ---
 
-<DefaultLayout title="Accessible Components">
+<DefaultLayout title="Accessible components">
   <section class="my-12">
-    <div class="space-content container">
-      <h1>Accessible Components</h1>
-      <p class="text-2xl">
-        This theme has a lot of extra a11y components provided by the <a
-          href="https://github.com/markteekman/accessible-astro-components">Accessible Astro Components</a
-        > NPM package to help you build accessible pages faster:
-      </p>
-    </div>
+    <PageHeader
+      title="Accessible components"
+      subtitle="This theme has a lot of extra A11Y components provided by the <a href='https://github.com/incluud/accessible-astro-components'>Accessible Astro Components</a> NPM package to help you build accessible pages faster. To learn more about the components and how to use them, checkout our <a href='https://accessible-astro.incluud.dev/'>documentation website</a>. The theme itself ships with many other components you can find in the components folder."
+      bgType="bordered"
+    />
   </section>
-  <section class="mb-12 mt-32">
+  <section class="mt-32 mb-12">
     <div class="container">
       <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
         <div class="space-content">
-          <h2>Accordion (normal)</h2>
+          <h2>Accordion (default)</h2>
           <Accordion>
             <AccordionItem title="First Item">
               <p>
@@ -74,9 +77,9 @@ import {
           </Accordion>
         </div>
         <div class="space-content">
-          <h2>Accordion (exclusive)</h2>
+          <h2>Accordion (chevron)</h2>
           <Accordion>
-            <AccordionItem name="exclusive" title="First Item">
+            <AccordionItem name="exclusive" title="First Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis <a href="#">sapiente obcaecati</a> magnam incidunt sit. Molestiae exercitationem quibusdam
@@ -84,28 +87,28 @@ import {
               </p>
               <a href="#">Tab to me!</a>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Second Item">
+            <AccordionItem name="exclusive" title="Second Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Third Item">
+            <AccordionItem name="exclusive" title="Third Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Fourth Item">
+            <AccordionItem name="exclusive" title="Fourth Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Fifth Item">
+            <AccordionItem name="exclusive" title="Fifth Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
@@ -115,28 +118,107 @@ import {
           </Accordion>
         </div>
         <div class="space-content">
+          <h2>Avatar</h2>
+          <div class="flex-w flex gap-3">
+            <Avatar initials="MT" label="Mark Teekman" />
+            <Avatar initials="PP" label="Peter Padberg" type="info" shape="square" />
+            <Avatar
+              label="Astronout"
+              img="https://images.unsplash.com/photo-1620428268482-cf1851a36764?auto=format&fit=crop&q=100&w=800"
+            />
+          </div>
+          <Avatar title="Mark Teekman" subtitle="Developer & A11Y Expert" />
+          <AvatarGroup>
+            <Avatar size="sm" label="Developer" initials="DV" />
+            <Avatar size="sm" type="info" label="Designer" initials="DS" />
+            <Avatar size="sm" type="success" label="Product Manager" initials="PM" />
+            <Avatar size="sm" type="warning" label="Marketing" initials="MK" />
+            <Avatar size="sm" type="error" label="Marketing" initials="MK" />
+          </AvatarGroup>
+        </div>
+        <div class="space-content">
+          <h2>Badge</h2>
+          <div class="flex flex-wrap gap-2">
+            <Badge type="default">Default</Badge>
+            <Badge type="info">Info</Badge>
+            <Badge type="success">Success</Badge>
+            <Badge type="warning">Warning</Badge>
+            <Badge type="error">Error</Badge>
+          </div>
+        </div>
+        <div class="space-content">
           <h2>Breadcrumbs</h2>
           <Breadcrumbs>
             <BreadcrumbsItem href="/" label="Home" />
             <BreadcrumbsItem href="/blog" label="Blog" />
             <BreadcrumbsItem currentPage={true} label="My blog post" />
           </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home" hasIcon>
+              <Icon name="lucide:home" slot="icon" />
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation" />
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
+          </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="lucide:chevron-right" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="lucide:chevron-right" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
+          </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home" hasIcon>
+              <Icon name="lucide:home" slot="icon" />
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="lucide:chevron-right" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="lucide:chevron-right" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
+          </Breadcrumbs>
         </div>
         <div class="space-content">
           <h2>Cards</h2>
           <Card
-            img="https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-          />
+            img="https://images.unsplash.com/photo-1620428268482-cf1851a36764?auto=format&fit=crop&q=100&w=800"
+            title="Card Title"
+            footer="Author name"
+          >
+            <span slot="meta">
+              <Icon name="lucide:clock" />
+              10 min read
+            </span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo accusantium
+            debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod veritatis laboriosam
+            est tenetur.
+          </Card>
         </div>
         <div class="space-content">
-          <h2>DarkMode Toggle</h2>
-          <p>This component can be viewed in the top right corner besides the main navigation.</p>
+          <h2>Dark mode toggle</h2>
+          <div class="flex gap-2">
+            <DarkMode />
+            <DarkMode>
+              <Icon name="lucide:sun" slot="light" />
+              <Icon name="lucide:moon" slot="dark" />
+            </DarkMode>
+          </div>
         </div>
         <div class="space-content">
           <h2>Media</h2>
           <Media
             class="rounded-lg"
-            src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?auto=format&fit=crop&q=100&w=800"
           />
         </div>
         <div class="space-content">
@@ -157,26 +239,26 @@ import {
         <div class="space-content">
           <h2>Notification</h2>
           <Notification>
-            <Icon name="ion:notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
+            <Icon name="lucide:bell" /><p><strong>Message:</strong> This is a notification!</p>
           </Notification>
           <Notification role="status" type="info">
-            <Icon name="ion:information-circle-outline" /><p>
+            <Icon name="lucide:info" /><p>
               <strong>Info:</strong> This is a notification of type info.
             </p>
           </Notification>
           <Notification role="status" type="success">
-            <Icon name="ion:checkbox-outline" /><p>
+            <Icon name="lucide:circle-check" /><p>
               <strong>Success:</strong> This is a notification of type success.
             </p>
           </Notification>
           <Notification role="status" type="warning">
-            <Icon name="ion:warning-outline" /><p>
+            <Icon name="lucide:triangle-alert" /><p>
               <strong>Warning:</strong> This is a notification of type warning and goes on multiple lines to see how that
               looks.
             </p>
           </Notification>
           <Notification role="alert" type="error">
-            <Icon name="ion:alert-circle-outline" /><p>
+            <Icon name="lucide:circle-x" /><p>
               <strong>Error:</strong> This is a notification of type error.
             </p>
           </Notification>
@@ -186,8 +268,11 @@ import {
           <Pagination totalPages="200" />
         </div>
         <div class="space-content">
-          <h2>SkipLinks</h2>
-          <p>This component can be viewed by shift+tabbing until they show up.</p>
+          <h2>Skip link</h2>
+          <p>
+            The SkipLink component becomes visible when you shift+tab to navigate backward through the page, it's the
+            first focusable element on the page.
+          </p>
         </div>
       </div>
       <div class="my-32"></div>
@@ -215,11 +300,11 @@ import {
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
               <Media
                 class="rounded-lg"
-                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?auto=format&fit=crop&w=800&q=100"
               />
               <Media
                 class="rounded-lg"
-                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?auto=format&fit=crop&w=800&q=100"
               />
             </div>
             <p>
@@ -245,6 +330,20 @@ import {
             <a href="#">Tab to me!</a>
           </TabsPanel>
         </Tabs>
+      </div>
+    </div>
+  </section>
+  <section class="mt-32 mb-12">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
+        <div class="space-content">
+          <h2>Video (default)</h2>
+          <Video src="https://www.youtube.com/watch?v=j8K-ESJF814" title="Video" />
+        </div>
+        <div class="space-content">
+          <h2>Video (aspect ratio)</h2>
+          <Video src="https://www.youtube.com/watch?v=j8K-ESJF814" title="Video" ratio="1:1" />
+        </div>
       </div>
     </div>
   </section>
