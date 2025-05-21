@@ -6,8 +6,13 @@ import icon from 'astro-icon'
 
 import netlify from '@astrojs/netlify';
 
+import { defineConfig } from 'astro/config'
+
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://stevenrich.github.io',
+  base: 'sdj',
   compressHTML: true,
 
   integrations: [
@@ -33,3 +38,5 @@ export default defineConfig({
 
   adapter: netlify(),
 })
+
+
