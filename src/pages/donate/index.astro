@@ -1,0 +1,51 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
+import Hero from '../../components/Hero.astro'
+import Feature from '../../components/Feature.astro'
+import Counter from '../../components/Counter.astro'
+import ContentMedia from '../../components/ContentMedia.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import amanda from '../../assets/img/amanda-morris.png';
+import hannah from '../../assets/img/hannah-wise.jpeg';
+import emyle from '../../assets/img/emyle-watkins.png';
+import eric from '../../assets/img/eric-garcia.jpg';
+import kate from '../../assets/img/kate-guarino.jpeg';
+import shruti from '../../assets/img/shruti-rajkumar.jpeg';
+import sara from '../../assets/img/sara-luterman.jpeg';
+import { BRAND } from 'astro:schema'
+---
+<DefaultLayout title="Join">
+    <div class="container"><h2 class="mb-16 text-6xl">Donate</h2> </div>
+    <div class="container">
+        <p>Want to support our work? You can donate to us through *****
+
+    </p></br>
+    <p> Donations are tax deductible and ***explain here*
+   
+    </p></br>
+
+    <div class="flex flex-col gap-3 min-[500px]:flex-row">
+        <a
+                class="button has-icon color-secondary"
+                href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+              >
+                <Icon name="ion:cash-outline" />
+                Donate
+              </a></div>
+            </br>
+
+    </div>
+    <div class="container"><h3 class="text-4xl">Other ways to support us</h3> </div>
+</br></br>
+        <div class="container">
+        </br>
+          <ul>
+            <li>- Send job openings to xyz</li>
+            <li>- Volunteer opportunities – email us</li>
+            <li>- Are you a newsroom that wants to partner with us for an event or training? Email us</li>
+          </ul>
+        </div>
+
+
+</DefaultLayout>

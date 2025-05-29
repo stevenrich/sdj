@@ -1,0 +1,50 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import Hero from '../../components/Hero.astro'
+import Feature from '../../components/Feature.astro'
+import Counter from '../../components/Counter.astro'
+import ContentMedia from '../../components/ContentMedia.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import amanda from '../../assets/img/amanda-morris.png';
+import hannah from '../../assets/img/hannah-wise.jpeg';
+import emyle from '../../assets/img/emyle-watkins.png';
+import eric from '../../assets/img/eric-garcia.jpg';
+import kate from '../../assets/img/kate-guarino.jpeg';
+import shruti from '../../assets/img/shruti-rajkumar.jpeg';
+import sara from '../../assets/img/sara-luterman.jpeg';
+---
+<DefaultLayout title="About">
+
+    <div class="container"><h2 class="mb-16 text-6xl">Our Mission</h2>
+    SDJ aims to see all disabled journalists, including those who identify as neurodivergent or have chronic conditions, find support in the media industry through connection and collaboration. SDJ seeks to serve as a resource and guide for our industry in how to cover disability issues respectfully, deliver news and information in accessible formats, and how to support the needs of disabled colleagues. </br></br></br></div>
+
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Board of Directors</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Feature image={amanda} title="Executive Director">
+          <b></b>Amanda Morris</b></br>Disability Reporter</br><i>The Washington Post</i>
+        </Feature>
+        <Feature image={hannah} title="Communications Director">
+          <b>Hannah Wise</b></br>Assistant Managing Editor for Engagement & Experimentation </br><i>The Kansas City Star</i>
+        </Feature>
+        <Feature image={emyle} title="Programs Director">
+          <b>Emyle Watkins</b></br>Lead Disability Desk Reporter</br><i>WBFO</i>
+        </Feature>
+        <Feature image={eric} title="Budget Director">
+          <b>Eric Garcia</b></br>Senior Washington Correspondent</br><i>The Independent</i>
+        </Feature>
+        <Feature image={kate} title="Membership Co-Director">
+          <b>Kate Guarino</b></br>Associate Audience Editor</br><i>The Atlantic</i>
+        </Feature>
+        <Feature image={shruti} title="Membership Co-Director">
+          <b>Shruti Rajkumar</b></br>Reporter</br><i>The Huffington Post</i>
+        </Feature>
+        <Feature image={sara} title="Standards Director">
+          <b>Sara Luterman</b></br>Caregiving Reporter</br><i>The 19th</i>
+        </Feature>
+
+      </div>
+    </div>
+
+
+</DefaultLayout>
